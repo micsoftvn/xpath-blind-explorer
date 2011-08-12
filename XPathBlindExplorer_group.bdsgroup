@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{B2BA95B9-308D-4213-A815-513B22B7BA82}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  
+    
+    <Projects>
+      <Projects Name="Project1.exe">..\Sandbox\Download file from internet\Project1.bdsproj</Projects>
+      <Projects Name="XPathBlindExplorer.exe">XPathBlindExplorer.bdsproj</Projects>
+      <Projects Name="Targets">Project1.exe XPathBlindExplorer.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

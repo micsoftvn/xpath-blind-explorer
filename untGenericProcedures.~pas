@@ -1,0 +1,35 @@
+unit untGenericProcedures;
+
+interface
+uses untVariables, SysUtils, Forms;
+procedure addToLog(logFileName, inform:string);
+
+implementation
+
+
+
+//-------------------------just add information to log file with date-time stamp
+procedure addToLog(logFileName, inform:string);
+var f:TextFile;
+    l:string;
+begin
+  assignFile(f, logFileName);
+  if fileExists(logFileName) then append(f) else rewrite(f);
+  if (inform<>'') then
+  begin
+     l:=datetostr(now)+' '+timetostr(now)+chr(9)+inform;
+     writeln(f, l);
+     writeln(inform);
+  end else
+  begin
+     writeln(f, '');
+     writeln(inform);
+  end;
+  closeFile(f);
+  application.processMessages;
+end;
+
+
+
+
+end.

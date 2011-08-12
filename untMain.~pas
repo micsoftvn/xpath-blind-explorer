@@ -1,0 +1,52 @@
+unit untMain;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, untVariables, untSettings, untGenericProcedures, ComCtrls;
+
+type
+  TfrmMain = class(TForm)
+    StatusBar: TStatusBar;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+{$R *.dfm}
+
+//---------------------------------------------------------on the very beginning
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+  currentDir:=ExtractFileDir(paramstr(0));
+  currentIni:=currentDir+'\'+iniName;
+  currentLog:=currentDir+'\'+logName;
+  LoadSettings(currentIni);
+
+  addToLog(currentLog, 'Application started.');
+end;
+
+
+
+
+
+//---------------------------------------------------------------on the very end
+procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  SaveSettings(currentIni);
+  addToLog(currentLog, 'Application closed.');
+end;
+
+
+
+
+end.
